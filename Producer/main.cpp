@@ -53,7 +53,7 @@ int main() {
     }
 
     // 创建互斥对象
-    HANDLE hMutex = CreateMutex(NULL, FALSE, L"Global\\MyMutexObject");
+    HANDLE hMutex = CreateMutex(NULL, FALSE, L"MyMutexObject");
 
     if (hMutex == NULL)
     {

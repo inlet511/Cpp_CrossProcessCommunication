@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     // 打开互斥对象
-    HANDLE hMutex = OpenMutex(SYNCHRONIZE, FALSE, L"Global\\MyMutexObject");
+    HANDLE hMutex = OpenMutex(SYNCHRONIZE, FALSE, L"MyMutexObject");
 
     if (hMutex == NULL)
     {
