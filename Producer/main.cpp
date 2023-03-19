@@ -36,7 +36,7 @@ std::array<int,4> get_time()
 int main() {
 
     // 创建文件映射对象
-    HANDLE hMapFile = CreateFileMapping(INVALID_HANDLE_VALUE, NULL, PAGE_READWRITE, 0, 1024, L"shared_memory");
+    HANDLE hMapFile = CreateFileMapping(INVALID_HANDLE_VALUE, NULL, PAGE_READWRITE, 0, 1024, L"GLOBAL\\shared_memory");
 
     if (hMapFile == NULL) {
         std::cout << "Error: Could not create file mapping object " << GetLastError() << std::endl;
@@ -53,7 +53,7 @@ int main() {
     }
 
     // 创建互斥对象
-    HANDLE hMutex = CreateMutex(NULL, FALSE, L"MyMutexObject");
+    HANDLE hMutex = CreateMutex(NULL, FALSE, L"GLOBAL\\MyMutexObject");
 
     if (hMutex == NULL)
     {

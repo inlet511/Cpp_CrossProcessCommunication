@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     // 打开互斥对象
-    HANDLE hMutex = OpenMutex(SYNCHRONIZE, FALSE, L"MyMutexObject");
+    HANDLE hMutex = OpenMutex(SYNCHRONIZE, FALSE, L"Global\\MyMutexObject");
 
     if (hMutex == NULL)
     {
@@ -16,7 +16,7 @@ int main()
     }
 
     // 打开共享内存对象
-    HANDLE hMapFile = OpenFileMapping(FILE_MAP_ALL_ACCESS,FALSE,L"shared_memory");
+    HANDLE hMapFile = OpenFileMapping(FILE_MAP_ALL_ACCESS,FALSE,L"GLOBAL\\shared_memory");
 
     if (hMapFile == NULL)
     {

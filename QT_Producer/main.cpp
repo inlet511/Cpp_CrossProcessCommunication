@@ -8,20 +8,6 @@
 #include <windows.h>
 
 
-QString toTtfString(const char* str)
-{
-    // 将普通字符串转换为Unicode字符串
-    int len = MultiByteToWideChar(CP_ACP, 0, str, -1, NULL, 0);
-    wchar_t* buf = new wchar_t[len];
-    MultiByteToWideChar(CP_ACP, 0, str, -1, buf, len);
-    std::wstring ret(buf);
-    delete[] buf;
-
-    // 将Unicode字符串转换为普通字符串
-    QString qtName = QString::fromUtf16(reinterpret_cast<const ushort*>(ret.c_str()));
-    return qtName;
-}
-
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
